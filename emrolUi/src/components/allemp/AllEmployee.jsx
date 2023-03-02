@@ -33,7 +33,7 @@ function AllEmployee() {
             {emp.map((values)=>
                 <div className='p-0 flex flex-col w-[16rem] h-[18rem] border-2 rounded-xl shadow-[0_20px_40px_-12px_rgb(0,0,0,0.3)] drop-shadow-lg'>
                    <div className=' py-4 w-full text-center '><img width="80" className='mx-20' src='/src/assets/employee.png'/>  
-                   <div className=' font-semibold font-sans'>{values.name}</div>
+                   <div className=' font-semibold font-[poppins]'>{values.name}</div>
                    <div className=' font-light text-sm font-serif text-gray-600'>{values.post}</div>
                   
 
@@ -44,11 +44,11 @@ function AllEmployee() {
                     <div className='flex justify-between px-2'>
                     <div>
                       <p className='font-light font-serif text-gray-600'>Department</p>
-                      <p className='text-sm'>{values.department}</p>
+                      <p className='text-xs font-[poppins] text-gray-800 font-bold'>{values.department}</p>
                     </div>
                     <div>
                       <p className='font-light font-serif text-gray-600'>Date hired</p>
-                      <p className='text-sm'>18/02/2022</p>
+                      <p className='text-xs font-[poppins] text-gray-800 font-bold'>18/02/2022</p>
                     </div>
                    </div>
                    <div className='p-2 text-gray-800 font-serif'>

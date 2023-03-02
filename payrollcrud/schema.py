@@ -1,5 +1,10 @@
 import graphene
 from graphene_django import DjangoObjectType
+from account.helpers import dictfetchall
+from collections import namedtuple
+from django.db import connection
+import json
+from .helpers import *
 from .models import *
 class Employee_graph(DjangoObjectType):
     class Meta:
@@ -19,8 +24,12 @@ class Employee_graph(DjangoObjectType):
 class Query(graphene.ObjectType):
     all_employee=graphene.List(Employee_graph)
     def resolve_all_employee(root,info):
-        return Employee.objects.all()
-
+            with connection.cursor() as cursor:
+                cursor.execute("SELECT * FROM payrollcrud_employee")
+                responseid=[i["id"] for i in dictfetchall(cursor)]
+                objects=Employee.objects.filter(id__in=responseid)
+                
+            return objects
 
     
 schema = graphene.Schema(query=Query)

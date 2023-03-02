@@ -6,6 +6,7 @@ import Signup from './authentication/Signup'
 import Dashboard from './components/dashboard/Dashboard';
 import Payroll from './components/payroll/Payroll';
 import AllEmployee from './components/allemp/AllEmployee';
+
 function App() {
   return (
     <div>

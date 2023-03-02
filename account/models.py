@@ -49,7 +49,7 @@ class User(AbstractBaseUser):
     REQUIRED_FIELDS = ['password','full_name']
 
     def __str__(self):
-        return self.email
+        return("%s %s" % (self.first_name, self.last_name)  )
 
  
     @property

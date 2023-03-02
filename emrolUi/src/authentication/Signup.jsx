@@ -15,8 +15,8 @@ function Signup() {
    
     <Link to="/"><a className='text-blue-900 hover:underline underline-offset-2 cursor-pointer'>Login</a></Link><p className='text-xl'><BsFillArrowRightSquareFill /></p></p></div>
     <div className='flex justify-center items-center w-screen'>
-    <div className='w-[24rem] h-[30rem] mt-16'>
-    <h1 className='font-serif font-bold text-xl'>Let's create your account</h1>
+    <div className='w-[24rem] h-max mt-10 p-12 shadow-2xl drop-shadow-xl rounded'>
+    <h1 className='font-serif font-bold text-xl text-center '>Let's create your account</h1>
 
 <form className='flex flex-col gap-6 mt-4'>
 <div>
