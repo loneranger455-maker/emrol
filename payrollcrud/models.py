@@ -10,6 +10,8 @@ class Employee(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     first_name=models.CharField(max_length=200)
     last_name=models.CharField(max_length=200)
+    phone_number=models.IntegerField(max_length=10)
+    date_hired=models.DateField(auto_now_add=True)
     address=models.CharField(max_length=200)
     image=models.ImageField(upload_to=employee_image_path,default='default.png')
     post=models.CharField(max_length=200)

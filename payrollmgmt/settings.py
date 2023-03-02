@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'graphene_django',
     'rest_framework',
     'account',
+    'payrollcrud',
     'corsheaders',
     'rest_framework_simplejwt',
 ]
