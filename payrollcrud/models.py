@@ -5,7 +5,7 @@ from account.models import User
 
 
 def employee_image_path(instance):
-    return 'employee_{}/'.format(instance.user.id)
+    return 'employee_/{0}'.format(instance.user.id)
 
 class Department(models.Model):
     account_user=models.ForeignKey(User,on_delete=models.CASCADE)
@@ -19,7 +19,7 @@ class Department(models.Model):
 
 class Employee(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
-    department=models.OneToOneField(Department,null=True,on_delete=models.SET_NULL)
+    department=models.ForeignKey(Department,null=True,on_delete=models.SET_NULL)
     first_name=models.CharField(max_length=200)
     last_name=models.CharField(max_length=200)
     phone_number=models.IntegerField(max_length=10)

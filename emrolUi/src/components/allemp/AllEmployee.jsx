@@ -1,9 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Topbar from '../dashboard/Topbar'
 import {AiOutlineMail,AiOutlinePhone} from 'react-icons/ai'
 import Footer from '../dashboard/Footer'
+import {useQuery,gql} from '@apollo/client'
+import { Load_Users } from '../../graphql/Queries'
+
 
 function AllEmployee() {
+const {error,loading,data}=useQuery(Load_Users)
+useEffect(()=>{
+console.log(data)
+},[data])
+
     const emp=[{"name":"Pujan Lamichhane","age":24,"email":"rangerlone547@gmail.com","post":"Fullstack Developer",
   "department":"Software development","phonenumber":"9845119593",
   "address":"Pokhara","salary":"40,000"},{"name":"Saroj Poudel","age":24,"email":"saroj@gmail.com","post":"Flutter Developer",

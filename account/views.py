@@ -35,10 +35,13 @@ class Signup(APIView):
 class Login(APIView):
     renderer_classes=[UserRenderer]
     def post(self,request):
+        print(request.data)
         with connection.cursor() as cursor:
-            cursor.execute("SELECT email,password FROM account_user WHERE email=%s AND password=%s",[request.data["email"],request.data["password"]])
+            cursor.execute("SELECT * FROM account_user WHERE email=%s AND password=%s",[request.data["email"],request.data["password"]])
             data=dictfetchall(cursor)
+            print(data)
             if data:
+                print(data)
                 user=User.objects.get(email=request.data["email"])
                 response={"token":get_tokens_for_user(user),"msg":"Account created sucessfully"}
                 return JsonResponse(response)

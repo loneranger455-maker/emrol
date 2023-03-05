@@ -25,7 +25,7 @@ class Query(graphene.ObjectType):
     all_employee=graphene.List(Employee_graph)
     def resolve_all_employee(root,info):
             with connection.cursor() as cursor:
-                cursor.execute("SELECT * FROM payrollcrud_employee")
+                cursor.execute("SELECT * FROM payrollcrud_employee where user=%s"%(request.user.id))
                 responseid=[i["id"] for i in dictfetchall(cursor)]
                 objects=Employee.objects.filter(id__in=responseid)
                 
